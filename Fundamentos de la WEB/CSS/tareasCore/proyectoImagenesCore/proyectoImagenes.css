@@ -1,0 +1,64 @@
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  background-color: greenyellow;
+}
+
+.bloque1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  background-color: yellow;
+}
+
+.bloque1 img {
+  width: 300px;
+  height: 180px;
+  border: 2px solid black;
+  margin: 0 15px;
+  border-radius: 80px;
+}
+
+.bloque2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  background-color: aqua;
+}
+
+.bloque2 img {
+  width: 300px;
+  height: 180px;
+  margin: 0 50px;
+  border: 2px dashed;
+}
+
+.bloque3 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  background-color: salmon;
+}
+
+.bloque3 img {
+  width: 300px;
+  height: 180px;
+  margin: 0 12px;
+  border: 5px double;
+}
+.descripcion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  background-color: greenyellow;
+}
