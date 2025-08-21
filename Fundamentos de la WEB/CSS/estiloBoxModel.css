@@ -1,0 +1,35 @@
+*{
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  text-decoration: underline wavy;
+  margin-bottom: 60px;
+}
+
+p{
+    color: white;
+}
+
+.box1 {
+  background-color: lightseagreen;
+}
+
+.box2 {
+  background-color: fuchsia;
+}
+
+.box3 {
+  background-color: blue;
+}
+
+.size{
+    width: 400px;
+    height: 200px;
+}
+.box1, .box2, .box3{
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}

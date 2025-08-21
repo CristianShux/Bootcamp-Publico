@@ -1,0 +1,59 @@
+/* Este es un comodin aplica el css a cada elemento de la pagina*/
+* {
+    outline: 1px solid red;
+}
+h1 {
+    color: rebeccapurple;
+}
+.green {
+    color: mediumaquamarine;
+}
+#red {
+    color: tomato;
+}
+
+/*ejemplo de selector descendente*/
+.puteada{
+    background-color: greenyellow;
+}
+
+.puteada p{
+    color: blue;
+    text-align: center;
+    font-style: italic;
+}
+
+/*ejemplo de selector descendente directo*/
+.header{
+    text-align: center;
+}
+.header > img{
+    height: 300px;
+}
+
+/*ejemplo de combinacion de selectores*/
+#container p{
+    font-size: 20px;
+    background-color: #333;
+}
+
+#container p.highlight{
+    font-weight: bold;
+    color: red;
+}
+
+#container p{
+    font-weight: bold;
+    color: white;
+}
+
+input[type="text"]{
+    border: none;
+    border-bottom: 2px solid rebeccapurple;
+}
+
+input[type="submit"]{
+    color: black;
+    background-color: aqua;
+}
+

@@ -1,0 +1,41 @@
+*{
+    text-align: center;
+}
+h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.botonRed{
+    background-color: red;
+    color: white;
+}
+
+.general{
+    display: block;
+    width: 100%;
+    height: 30px;
+    border: none;
+}
+
+
+.general2{
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.general3{
+    display: inline;
+    background-color: red;
+}
+
+.general4{
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    background-color: blue;
+}

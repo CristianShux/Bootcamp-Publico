@@ -1,0 +1,16 @@
+/*Poner un color por su nomrbe*/
+h1{
+    color: purple;
+    background-color: black;
+}
+
+/*poner color rgb combinaciones*/
+p{
+    color: rgb(22, 172, 42);
+}
+
+/*poner color con codigo de numeros y letras de la paleta*/
+h3{
+    color: #ff6347;
+}
+

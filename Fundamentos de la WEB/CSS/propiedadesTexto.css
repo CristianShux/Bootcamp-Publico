@@ -1,0 +1,37 @@
+/*Alineacion de texto*/
+p {
+
+text-align: left; 
+
+   text-align: center; 
+
+   text-align: right; 
+
+}
+
+/*decoracion y estilo*/
+a {
+
+text-decoration: underline;
+
+font-style: italic;
+
+text-decoration: line-through;
+
+text-decoration: none;
+
+}
+
+/*grueso de la fuente*/
+h1 {
+
+  font-weight: bold;
+
+}
+
+/*tipografia de la fuente*/
+body {
+
+  font-family: sans-serif;
+
+}

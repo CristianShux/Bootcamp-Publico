@@ -1,0 +1,37 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buscar {
+  margin: 5px;
+  width: 150px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 50px;
+  font-size: 18px;
+  background-color: rgb(199, 197, 197);
+}
+
+.mas {
+  margin: 5px;
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-size: 25px;
+  background-color: rgb(250, 162, 0);
+  border: none;
+  border-radius: 50px; /*circulo percecto requiere esto y ancho y alto igual*/
+}
+
+.crearCuenta {
+  margin: 5px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  color: white;
+  background-color: dodgerblue;
+  font-size: 18px;
+  box-shadow: 5px 10px 20px gray; /*sombra de difusion, el tercer parametro es el grado de difusion*/
+}

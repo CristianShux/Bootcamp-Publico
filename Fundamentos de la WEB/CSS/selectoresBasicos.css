@@ -1,0 +1,25 @@
+h1{
+    color: blue;
+    font-size: 50px;
+}
+
+.parrafo1{
+    color: yellow;
+    background-color: black;
+}
+
+.marron{
+    color: brown;
+}
+
+.parrafo2{
+    background-color: greenyellow;
+}
+
+#final-estilo{
+    font-size: 30px;
+    color: blanchedalmond;
+    background-color: blue;
+    text-align: center;
+    font-style: italic;
+}

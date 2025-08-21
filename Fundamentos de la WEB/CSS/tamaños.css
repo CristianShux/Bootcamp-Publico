@@ -1,0 +1,24 @@
+.papu{
+    overflow: auto;
+}
+
+.papu img{
+    width: 800px;
+    height: 400px;
+}
+
+p{
+    background: red url("ayasa.jpeg") no-repeat fixed center;
+    font-size: 30px;
+}
+
+input[type="button"]{
+    border: 2px dotted green;
+}
+
+#boton2{
+    border-width: 2px;
+    border-style: solid;
+    border-color: aqua;
+    border-radius: 10px;
+}
