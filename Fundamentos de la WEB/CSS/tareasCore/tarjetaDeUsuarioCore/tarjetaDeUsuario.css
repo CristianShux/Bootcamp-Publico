@@ -1,0 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#tarjeta_usuario {
+  display: flex;
+  margin: 10px;
+  height: 640px;
+  width: 700px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.panel_azul {
+  width: 700px;
+  height: 100px;
+  background-color: rgb(0, 188, 213);
+  position: absolute;
+  border-radius: 10px 10px 0 0;
+}
+
+.imagen_presentacion img {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50px;
+  left: 60px;
+  border-radius: 100%;
+  border: 4px solid white;
+}
+
+.presentacion {
+  width: 570px;
+  height: 400px;
+  position: absolute;
+  top: 250px;
+  left: 60px;
+}
+
+.presentacion h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.presentacion p.ubicacion {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.presentacion p {
+  margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.boton button {
+  margin-top: 30px;
+  font-size: 19px;
+  position: absolute;
+  width: 120px;
+  top: 540px;
+  left: 60px;
+  padding: 15px;
+  background-color: rgb(241, 242, 246);
+  border: none;
+  border-radius: 5px;
+  font-weight: 400;
+}
