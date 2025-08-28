@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+h1,h2{
+    font-weight: bold;
+}
+header{
+    display: flex;
+    background-color: lightgray;
+    margin: 0 60px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+header > button{
+ 
+    width: 110px;
+    background-color: #1d90ff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+header > input{
+    width: 700px
+}
+
+main{
+    display: flex;
+}
+
+.column1{
+    margin-top: 20px;
+    margin-left: 60px;
+
+
+}
+
+.significado1, .significado2{
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.significado1 button, .significado2 button{
+    background-color: #fafecd;
+    border-radius: 5px;
+    padding: 3px;
+}
+.column2{
+    margin: 20px 20px;
+    width: 375px;
+}
+
+.significado1 p, .significado2 p, .definicion p{
+    margin: 10px 0px;
+    font-size: 15px;
+}
+
+.definicion{
+    border: 1px solid black;
+    padding: 0px 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.definicion > button{
+    background-color: #027e03;
+    color: white;
+    width: 230px;
+    padding: 5px;
+    margin-top: 1px;
+    cursor: pointer;
+}
