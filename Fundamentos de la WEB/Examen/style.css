@@ -4,7 +4,7 @@
   font-family: "Balsamiq Sans", cursive;
 }
 
-.mainConfiguracionDisplayFlex {
+.mainConfiguracionFlex {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,23 +24,21 @@ header {
   justify-content: center;
 }
 
-.colorAdopta {
+.colorVerdeOscuro {
   color: #009d08;
 }
-
-.colorTu {
+.colorVerdeMedio {
+  color: #99bf82;
+}
+.colorVerdeClaro {
   color: #b7cda7;
 }
 
-.colorArbol {
-  color: #99bf82;
-}
-
-.colorBlanco{
+.colorBlanco {
   color: white;
 }
 
-#AdoptaTuArbol {
+#adoptaTuArbol {
   display: flex;
   margin: 0.5rem 0 0 0.5rem;
   font-size: 1.2rem;
@@ -72,7 +70,6 @@ header {
 hr {
   border: none;
   height: 0.1rem;
-  background-color: black;
   margin-top: 0.5rem;
 }
 
@@ -86,7 +83,7 @@ hr {
   margin: 0.5rem 0.4rem 0.5rem 0.5rem;
 }
 
-#main_3 {
+#contedorTarjetas {
   display: flex;
   flex-wrap: wrap; /*Hago que los hijos que no quepan en la fila actual pasen a la siguiente fila*/
 }
@@ -137,15 +134,27 @@ footer {
   width: 10rem;
 }
 
-.footerh3{
+.footerh3 {
   font-size: 1.6rem;
 }
 
-#navegacion p,
-#informacionContacto p,
-#masDeNosotros p {
+#informacionContacto p {
   font-size: 0.9rem;
   margin-top: 0.5rem;
+}
+
+#navegacion,
+#masDeNosotros {
+  display: flex;
+  flex-direction: column;
+}
+
+#navegacion a,
+#masDeNosotros a {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  color: black;
 }
 
 #suscribirse h3 {
@@ -161,12 +170,12 @@ footer {
   margin-top: 0.5rem;
 }
 
-#correoGroup input {
+#correoGroup > input {
   border: solid 0.14rem black;
   text-align: center;
 }
 
-#correoGroup button {
+#correoGroup > button {
   background-color: #377517;
   padding: 0.2rem;
   width: 4rem;
