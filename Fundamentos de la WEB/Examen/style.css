@@ -1,0 +1,175 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Balsamiq Sans", cursive;
+}
+
+.mainConfiguracionDisplayFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  flex: 0.4;
+  background-color: #92c47d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.colorAdopta {
+  color: #009d08;
+}
+
+.colorTu {
+  color: #b7cda7;
+}
+
+.colorArbol {
+  color: #99bf82;
+}
+
+.colorBlanco{
+  color: white;
+}
+
+#AdoptaTuArbol {
+  display: flex;
+  margin: 0.5rem 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.botonAdoptarEstilo {
+  background-color: #b7d7a6;
+  cursor: pointer;
+  box-shadow: 0.2rem 0.2rem 0rem black;
+  margin: 0.5rem 0 0 0;
+  padding: 0.3rem;
+}
+
+.botonAdoptar {
+  width: 8rem;
+  font-size: 1.5rem;
+}
+
+#botonDonar {
+  box-shadow: 0.2rem 0.2rem 0rem black;
+  margin: 0.5rem 0.5rem 0rem 0.5rem;
+  padding: 0.3rem;
+  background-color: #67a856;
+  width: 8rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+hr {
+  border: none;
+  height: 0.1rem;
+  background-color: black;
+  margin-top: 0.5rem;
+}
+
+#mostrandoArboles {
+  margin: 0.5rem 0.5rem 0.5rem 0.4rem;
+  font-size: 1rem;
+}
+
+#tipoArbol {
+  border: solid 0.14rem black;
+  margin: 0.5rem 0.4rem 0.5rem 0.5rem;
+}
+
+#main_3 {
+  display: flex;
+  flex-wrap: wrap; /*Hago que los hijos que no quepan en la fila actual pasen a la siguiente fila*/
+}
+
+.tarjetaArbol {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: #eeeeee;
+  padding: 1.5rem;
+  margin: 0rem 0.5rem 1rem 0.5rem;
+  border-radius: 1rem;
+  width: 31.2rem;
+  justify-content: space-between;
+}
+
+.tarjetaArbol p {
+  font-size: 0.8rem;
+}
+
+.tarjetaArbol div {
+  width: 9rem;
+}
+
+.botonAdoptarArbol {
+  width: 5rem;
+}
+
+img {
+  width: 8rem;
+  height: 7rem;
+}
+
+main {
+  flex: 5;
+  margin: 0 120px;
+}
+
+footer {
+  flex: 1.1;
+  display: flex;
+  background-color: #92c47d;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#informacionContacto {
+  width: 10rem;
+}
+
+.footerh3{
+  font-size: 1.6rem;
+}
+
+#navegacion p,
+#informacionContacto p,
+#masDeNosotros p {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+#suscribirse h3 {
+  text-align: center;
+}
+
+#suscribirse {
+  margin-bottom: 1.2rem;
+}
+
+#correoGroup {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+#correoGroup input {
+  border: solid 0.14rem black;
+  text-align: center;
+}
+
+#correoGroup button {
+  background-color: #377517;
+  padding: 0.2rem;
+  width: 4rem;
+  cursor: pointer;
+  box-shadow: 0.1rem 0.1rem 0rem black;
+}
