@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tiempo Local</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="stylesheet" href="tiempoLocal.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Tiempo Local</h1>
+      <nav>
+        <a href="#" id="buenosAires">Buenos Aires</a>
+        <a href="#" id="ciudadDeMexico">Ciudad de México</a>
+        <a href="#" id="santiago">Santiago</a>
+        <a href="#" id="saoPaulo">Sao Paulo</a>
+        <a href="#" id="quito">Quito</a>
+      </nav>
+      <div id="temperaturas">
+        <span>Mostrar temperatura en</span>
+        <select id="tipo-temperatura">
+          <option>C°</option>
+        </select>
+      </div>
+    </header>
+    <main>
+      <div id="contenedor" class="oculto">
+        <h2>Quito</h2>
+        <div id="contenedorTarjetas">
+          <div class="tarjetaClima">
+            <img src="img/tormenta.png" alt="Icono de tormentas" />
+            <h3>Hoy</h3>
+            <span>Tormentas</span>
+            <span>17°C° 10°C°</span>
+          </div>
+          <div class="tarjetaClima">
+            <img src="img/nublado.png" alt="Icono de tormentas" />
+            <h3>Mañana</h3>
+            <span>Parcialmente nublado</span>
+            <span>17°C° 10°C°</span>
+          </div>
+          <div class="tarjetaClima">
+            <img src="img/sol.png" alt="Icono de tormentas" />
+            <h3>Miércoles</h3>
+            <span>Soleado</span>
+            <span>17°C° 10°C°</span>
+          </div>
+          <div class="tarjetaClima">
+            <img src="img/nublado.png" alt="Icono de tormentas" />
+            <h3>Jueves</h3>
+            <span>Tormentas</span>
+            <span>17°C° 10°C°</span>
+          </div>
+          <div class="tarjetaClima">
+            <img src="img/lluvia.png" alt="Icono de tormentas" />
+            <h3>Viernes</h3>
+            <span>Lluvioso</span>
+            <span>17°C° 10°C°</span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <span>
+        Detente!Tiempo de cookies. Usamos cookies (tristemente, no las
+        comestibles) para personalizar contenido y anuncios, proporcionar
+        funciones de redes sociales y analizar nuestro trafico.
+        <a href="#">Lee más</a>
+      </span>
+      <button id="aceptar">Acepto</button>
+    </footer>
+  </body>
+</html>

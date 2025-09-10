@@ -1,0 +1,106 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+}
+
+header{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #3399fe;
+    align-items: center;
+}
+header h1{
+    color: white;
+    font-size: 1.8rem;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    width: 30rem;
+}
+
+nav a{
+    text-decoration: none ;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+#temperaturas{
+    color: white;
+    margin-bottom: 1rem;
+}
+
+main{
+    flex: 5;
+    background-color: white;
+}
+
+footer{
+    flex: 1;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer span{
+    color: white;
+    font-size: 0.9rem;
+}
+
+#aceptar{
+    background-color: #e8c603;
+    padding: 0.3rem;
+    width: 4.5rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+main h2{
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#contenedorTarjetas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.oculto {
+  display: none;
+}
+
+.tarjetaClima{
+    display: flex;
+    height: 12rem;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    margin: 0 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 0.2rem;
+    border: 0.1rem solid gainsboro;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.tarjetaClima span{
+    width: 6rem;
+    text-align: center;
+}
+
+.tarjetaClima img{
+    width: 5rem;
+    height: 5rem;
+}
