@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <button class="boton">Roselia</button>
+    <button class="boton">Morfonica</button>
+    <button class="boton">RAS</button>
+    <button class="boton">AFTERGLOW</button>
+    <script>
+      //version normal, mas larga con mas metodos
+      var botones = document.querySelectorAll(".boton");
+
+      for (var i = 0; i < botones.length; i++) {
+        botones[i].addEventListener("click", function () {
+          alert("¡Has hecho clic en un botón!");
+        });
+      }
+
+      //Version simplificada
+      $(".boton").click(function () {
+        alert("¡Has hecho clic en un botón!");
+      });
+    </script>
+  </body>
+</html>
