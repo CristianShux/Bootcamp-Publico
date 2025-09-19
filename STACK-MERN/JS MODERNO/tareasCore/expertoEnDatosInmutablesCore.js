@@ -32,11 +32,11 @@ const juegosIdentificacionDivisible3=videojuegos.filter(juego=>juego.id%3==0);
 console.log(juegosIdentificacionDivisible3);
 
 //2) Un conjunto de videojuegos que pertenecen al género “acción-RPG”.
-const juegosAccionRPG=videojuegos.filter(juego=>juego.genero=="acción-RPG");
+const juegosAccionRPG=videojuegos.filter(juego=>juego.genero.includes("acción-RPG"));
 console.log(juegosAccionRPG);
 
 //3) Un conjunto de videojuegos que tienen más de un género.
-const juegosMasDeUnGenero=videojuegos.filter(juego=>juego.genero.includes("-"));
+const juegosMasDeUnGenero=videojuegos.filter(juego=>juego.genero.includes(" "));
 console.log(juegosMasDeUnGenero);
 
 //4) Una lista con los nombres de los videojuegos.
