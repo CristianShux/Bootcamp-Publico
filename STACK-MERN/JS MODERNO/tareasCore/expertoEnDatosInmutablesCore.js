@@ -52,20 +52,11 @@ const listaNombreVideoJuegosShooter=videojuegos.filter(juego=>juego.genero==="sh
 console.log(listaNombreVideoJuegosShooter);
 
 //7) Una lista que contenga solo el primer género de todos los videojuegos cuyo segundo género es “aventura”.
-const segundoGeneroEsAventura=(juego)=>{
-    arrayGenero=juego.genero.split("-");
-    if(arrayGenero[1]=="aventura"){
-        return true;
-    }
-}
-const getPrimerGenero=(juego)=>{
-    return juego.genero.split("-")[0];
-}
-const listaPrimerGeneroSegundoAventura=videojuegos.filter(segundoGeneroEsAventura).map(getPrimerGenero);
+const listaPrimerGeneroSegundoAventura=videojuegos.filter(juego => juego.genero.includes("-aventura")).map(juego => juego.genero.split("-")[0]);
 console.log(listaPrimerGeneroSegundoAventura);
 
 //8) Un conteo del número de videojuegos que son del género “party”.
-const cantidadVideojuegosParty=videojuegos.filter(juego=>juego.genero==="party").length;
+const cantidadVideojuegosParty=videojuegos.filter(juego=> juego.genero.includes("party")).length;
 console.log(cantidadVideojuegosParty);
 
 //9) Una lista con todos los videojuegos excepto aquellos cuyo número de identificación sea múltiplo de 5.
