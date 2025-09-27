@@ -8,7 +8,7 @@ function App() {
     <div>
       <h1>PRIMERA APLICACION REACT</h1>
       <h2>HOLA!</h2>
-      <Saludo nombre={"Pablo"}></Saludo>
+      <Saludo nombre={"Cristian"}></Saludo>
     </div>    
     </>
   )
