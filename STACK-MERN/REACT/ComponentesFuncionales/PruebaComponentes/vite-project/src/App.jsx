@@ -16,8 +16,8 @@ function App() {
 
   return (
     <>
-      <Mensaje></Mensaje>
-      <Tarjeta></Tarjeta>
+      <Mensaje/>
+      <Tarjeta/>
       <p>{nombre}</p>
       <p>{edad}</p>
       <p>{nombreUsuario}</p>

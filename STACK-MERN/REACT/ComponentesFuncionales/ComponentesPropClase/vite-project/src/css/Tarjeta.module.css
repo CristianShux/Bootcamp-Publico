@@ -1,0 +1,7 @@
+.tarjeta{
+    flex: 1;
+    display: flex;
+    border: 0.1rem solid black;
+    justify-content: space-evenly;
+    margin: 1rem;
+}
