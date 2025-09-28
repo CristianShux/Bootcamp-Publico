@@ -1,0 +1,8 @@
+.sideNav {
+  display: inline-block;
+  height: 380px;
+  width: 205px;
+  background-color: #66ccff;
+  margin-top: 10px;
+  margin-left: 10px;
+}
