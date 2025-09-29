@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './../css/Tarjeta.module.css'
 
 const Tarjeta = ({ nombreProducto, precio, descripcion, enStock }) => {
@@ -10,5 +11,12 @@ const Tarjeta = ({ nombreProducto, precio, descripcion, enStock }) => {
     </div>
   );
 };
+
+Tarjeta.propTypes={
+  nombreProducto: PropTypes.string.isRequired,
+  precio: PropTypes.number.isRequired,
+  descripcion: PropTypes.string.isRequired,
+  enStock: PropTypes.bool.isRequired
+}
 
 export default Tarjeta
