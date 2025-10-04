@@ -34,7 +34,7 @@ function App() {
       <p>{mensaje}</p>
       <button onClick={()=> setMensaje("Hola")}>Mensaje</button>
       <hr />
-      {listaSups.map((superx, index)=> <div className={`card bg-warning}`} key={index} > <p>{superx.name}</p> <p>{superx.description}</p></div>
+      {listaSups.map((superx, index)=> <div className={`card bg-warning`} key={index} > <p>{superx.name}</p> <p>{superx.description}</p></div>
       )}
       {/* <button onClick={()=> setListaSups([...listaSups, {name: "incognito", description: "I am an ramdom sup"}])} >Agregar sup</button> */}
       <button onClick={()=>agregarSup("Kevin", "I am your teacher")} >Agregar sup</button>

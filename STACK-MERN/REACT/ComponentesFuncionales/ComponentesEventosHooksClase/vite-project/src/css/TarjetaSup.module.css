@@ -1,0 +1,11 @@
+.tarjetaSup{
+    flex: 1;
+    margin: 1rem !important;
+    display: flex;
+
+}
+
+img{
+    width: 2rem;
+    height: 2rem;
+}
