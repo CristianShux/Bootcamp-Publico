@@ -1,0 +1,41 @@
+.tarjeta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 0 1rem;
+  height: 16rem;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+.colorGris {
+  color: #b3b3b9;
+}
+
+.fondoGris{
+  background-color: #d8d8d8;
+}
+
+.agotado {
+  color: red;
+  font-weight: bold;
+}
+
+.enStock {
+  color: #079a15;
+  font-weight: bold;
+}
+
+button{
+  margin: 0.8rem 0;
+  border-radius: 0.3rem;
+  border: none;
+  padding: 0.5rem;
+  color: white;
+  background-color: #2f86e5;
+}
