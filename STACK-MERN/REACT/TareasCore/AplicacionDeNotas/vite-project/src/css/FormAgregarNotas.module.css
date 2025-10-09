@@ -1,0 +1,39 @@
+.formAgregar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formAgregar > div {
+  margin: 0.2rem 0 0.7rem 0;
+  
+}
+
+input {
+  width: 20rem;
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  border: 1px solid gainsboro;
+  border-radius: 0.4rem;
+}
+
+.selectPrio {
+  padding: 0.4rem;
+  border: 1px solid gainsboro;
+  border-radius: 0.4rem;
+  width: 10rem;
+}
+
+.agregar {
+  background-color: #0056b2;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  border: none;
+  width: 21.2rem;
+  cursor: pointer;
+}
+
+p{
+  text-align: center;
+}

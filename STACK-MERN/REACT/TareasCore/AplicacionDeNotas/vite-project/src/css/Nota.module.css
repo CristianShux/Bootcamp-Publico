@@ -1,0 +1,21 @@
+.nota{ 
+    display: flex;
+    align-items: center;
+    border: 1px solid gainsboro;
+    width: 20rem;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+    margin: 0.6rem;
+    background-color: #f8f9fb;
+    border-radius: 0.4rem;
+}
+
+
+.eliminar{
+    background-color: #d03844;
+    color: white;
+    border-radius: 0.4rem;
+    border: none;
+    padding: 0.5rem 0.7rem;
+    cursor: pointer;
+}

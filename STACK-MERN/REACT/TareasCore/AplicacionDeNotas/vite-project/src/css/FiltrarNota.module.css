@@ -1,0 +1,10 @@
+.selector{
+    margin: 0.5rem 0 0 0;
+}
+
+.tipos {
+  padding: 0.4rem;
+  border: 1px solid gainsboro;
+  border-radius: 0.4rem;
+  width: 10rem;
+}
