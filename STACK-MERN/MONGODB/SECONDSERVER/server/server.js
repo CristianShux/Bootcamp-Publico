@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended: true}))
 connectToDb();
 
 //rutas
-app.use("/api/personas",routePersona)
+app.use("/api/personas",routePersona);
 
 //listen
 app.listen(PORT,()=>{
