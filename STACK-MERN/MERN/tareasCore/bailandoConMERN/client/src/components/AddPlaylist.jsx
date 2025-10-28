@@ -18,8 +18,7 @@ const AddPlaylist = () => {
     fetchSongs();
   }, []);
 
-  // Función que maneja la selección/deselección del checkbox
-  const handleCheckboxChange = (songTitle) => {
+  const manejarCambioCheckBox = (songTitle) => {
     setSelectedSongTitles((prevTitles) => {
       if (prevTitles.includes(songTitle)) {
         // Si ya está seleccionado, lo quitamos
@@ -31,7 +30,7 @@ const AddPlaylist = () => {
     });
   };
 
-  const manejarEnvio = (e) => {
+  const manejarEnvio = async (e) => {
     e.preventDefault();
 
     if (namePlaylist == "") {
@@ -42,8 +41,6 @@ const AddPlaylist = () => {
     //Creo el objeto de la nueva playlist
    const songsFiltradas = songs.filter((song) => selectedSongTitles.includes(song.title))
    .map((song) => song.title);
-
-    console.log(songsFiltradas);
 
     const newPlaylist = {
       name: namePlaylist,
@@ -80,16 +77,15 @@ const AddPlaylist = () => {
         <h1>Choose Songs</h1>
         <div>
           {songs.map((song, index) => {
-            const uniqueId = `song-${song._id || index}`; // Usar ID único para el checkbox
             return (
-              <div className={styles.checks} key={uniqueId}>
+              <div className={styles.checks} key={index}>
                 <input
                   type="checkbox"
-                  id={uniqueId}
+                  id={index}
                   checked={selectedSongTitles.includes(song.title)}
-                  onChange={() => handleCheckboxChange(song.title)}
+                  onChange={() => manejarCambioCheckBox(song.title)}
                 />
-                <label htmlFor={uniqueId}>{song.title}</label>
+                <label htmlFor={index}>{song.title}</label>
               </div>
             );
           })}
