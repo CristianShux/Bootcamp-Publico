@@ -1,0 +1,21 @@
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedorTarjetas > div{
+    margin: 0.7rem 0;
+}
+
+
+.tarjetaSongs{
+    display: flex;
+    justify-content: space-between;
+    border:  solid 0.1rem black;
+    width: 50rem;
+}
+
+.tarjetaSongs p{
+    margin: 1rem 1rem;
+}
