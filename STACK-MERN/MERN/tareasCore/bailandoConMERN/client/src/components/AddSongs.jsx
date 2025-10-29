@@ -8,56 +8,33 @@ const AddSongs=()=>{
     const [artist, setArtist]=useState("");
     const [year, setYear]=useState("");
     const [genre, setGenre]=useState("");
-    const [errores, setErrores] = useState({title: "", artist: "", year: "", genre:""});
+    const [errores, setErrores] = useState({});
     const navigate=useNavigate();
 
-    const manejarEnvio=(e)=>{
+    const manejarEnvio= async(e)=>{
         e.preventDefault();
-
-    //validaciones
-    let titleValidation="";
-    let artistValidation="";
-    let yearValidation="";
-    let genreValidation="";
-
-    if(title==""){
-        titleValidation="El campo de nombre esta vacio";
-    }
-    if(artist==""){
-        artistValidation="El campo de artista esta vacio";
-    }
-    if(year==""){
-        yearValidation="El campo de año esta vacio";
-    }
-    if(genre==""){
-        genreValidation="El campo de genero esta vacio";
-    }
-
-    if(title=="" || artist=="" ||year==""|| genre==""){
-        setErrores({"title":titleValidation, "artist":artistValidation, "year":yearValidation, "genre":genreValidation})
-        return;
-    }
     
     const nuevaCancion = { 
             title: title, 
             artist: artist, 
-            yearOfRealease: parseInt(year), 
+            yearOfRealease: Number(year), 
             genre: genre 
         };
 
-        try {
-            axios.post("http://localhost:8000/api/canciones", nuevaCancion);
-        } catch (error) {
-            console.error("Error al crear la canción:", error.response ? error.response.data : error.message);
-        }
-    
+    setErrores({});
 
+        try {
+        await axios.post("http://localhost:8000/api/canciones", nuevaCancion);
+        //si es exito limpio todos los campos y navego
         setTitle("");
         setArtist("");
         setYear("");
         setGenre("");
-        setErrores("");
         navigate('/songs'); 
+
+    } catch (e) {
+            setErrores(e.response.data.errors);
+        }
     };
 
     return (
@@ -77,7 +54,7 @@ const AddSongs=()=>{
                 <div>
                     <label htmlFor="year">Year:</label>
                     <input type="year" name="year" id="year" value={year} onChange={(e)=>setYear(e.target.value)}/>
-                    {errores.year?<p>{errores.year}</p>:""}
+                    {errores.yearOfRealease?<p>{errores.yearOfRealease}</p>:""}
                 </div>
                 <div>
                     <label htmlFor="genre">Genre:</label>
