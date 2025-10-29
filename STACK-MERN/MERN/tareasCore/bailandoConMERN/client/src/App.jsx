@@ -6,6 +6,7 @@ import AddSongs from "./components/AddSongs";
 import Playlists from "./components/Playlists";
 import SongsPlaylists from "./components/SongsPlaylist";
 import AddPlaylist from "./components/AddPlaylist";
+import SongInformation from "./components/SongInformation";
 
 function App() {
   return (
@@ -15,11 +16,11 @@ function App() {
         <Routes>
           <Route path="/" element={<AllSongs />}/>
           <Route path="/songs" element={<AllSongs />}/>
+          <Route path="/songs/:id" element={<SongInformation />}/>
           <Route path="/addSongs" element={<AddSongs />}/>
           <Route path="/playlists" element={<Playlists />}/>
           <Route path="/playlists/:name" element={<SongsPlaylists />}/>
           <Route path="/addPlaylist" element={<AddPlaylist />}/>
-
         </Routes>
       </main>
     </>

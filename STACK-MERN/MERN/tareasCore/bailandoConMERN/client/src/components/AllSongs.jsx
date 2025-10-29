@@ -1,6 +1,8 @@
 import {useEffect, useState } from "react";
 import styles from "./../css/SongsPlaylists.module.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 const AllSongs = () => {
   const [songs, setSongs] = useState([]);
   const [filtro, setFiltro] = useState("");
@@ -49,7 +51,7 @@ const AllSongs = () => {
         {songsFiltradas.map((song, index) => {
           return (
             <li key={index}>
-              <span className={styles.colorItem}>{song.title}</span> by{" "}
+              <Link className={styles.colorItem} to={`/songs/${song._id}`}>{song.title}</Link> by{" "}
               {song.artist} ({song.genre})
             </li>
           );
