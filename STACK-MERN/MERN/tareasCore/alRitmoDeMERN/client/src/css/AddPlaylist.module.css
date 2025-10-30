@@ -1,0 +1,41 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1{
+    text-align: center;
+}
+.contenedorName {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formPlaylist p{
+  color: red;
+}
+
+.inputName {
+  width: 40rem;
+  padding: 0.4rem;
+}
+
+.checks{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttonCreatePlaylist{
+    color: white;
+    background-color: #4bb04f;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 10rem;
+    margin: 2rem 15rem;
+    cursor: pointer;
+    font-weight: bold;
+}
