@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styles from './../css/SongInformation.module.css'
 import styles2 from './../css/BotonesEditores.module.css'
 
-const SongInformation=()=>{
+const SongInformation=({listaSongs,setListaSongs})=>{
     const[informacion, setInformacion]=useState({});
     const {id}=useParams();
     const navigate=useNavigate();
@@ -30,6 +30,7 @@ const SongInformation=()=>{
     const handleDeleteClick= async()=>{
         try{
             axios.delete(`http://localhost:8000/api/canciones/${id}`);
+            setListaSongs(listaSongs.filter((song)=>song._id!=id))
             navigate('/songs');
         }catch(e){
              console.error("Error al eliminar la cancion:", e)

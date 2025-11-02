@@ -1,9 +1,9 @@
-import {useState } from "react";
+import {useEffect, useState } from "react";
 import axios from "axios"
 import styles from './../css/AddSongs.module.css';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const AddSongs=()=>{
+const UpdateSong=({listaSongs,setListaSongs})=>{
     const [data, setData]=useState({
         title: "",
         artist: "",
@@ -12,18 +12,41 @@ const AddSongs=()=>{
     });
     const [errores, setErrores] = useState({});
     const navigate=useNavigate();
-    
+    const {id}=useParams();
+    const index = listaSongs.findIndex((song)=> song._id==id)
+
+    useEffect(()=>{
+        const setInformationSong= async()=>{
+            const API_URL=`http://localhost:8000/api/canciones/${id}`
+            try{
+                await axios.get(API_URL).then((response)=>{
+                    setData(response.data)
+                });
+            }catch(e){
+                console.error("Error al obtener la informacion de la cancion:", e);
+            }
+        };
+        setInformationSong();
+    },[id])
+
+
     const updateState=(e)=>{
         setData({...data, [e.target.name]:e.target.value})
     }
 
     const manejarEnvio= async(e)=>{
         e.preventDefault();
-    
-    setErrores({});
+        setErrores({});
 
         try {
-        await axios.post("http://localhost:8000/api/canciones", data);
+        await axios.put(`http://localhost:8000/api/canciones/${id}`, data)
+            .then(
+                response=>{
+                            const copyListaSong=[...listaSongs];
+                            copyListaSong[index]=response.data;
+                            setListaSongs(copyListaSong);
+                }
+            );
         //si es exito limpio todos los campos y navego
         setData({
             title: "",
@@ -31,16 +54,16 @@ const AddSongs=()=>{
             yearOfRealease: "",
             genre: ""
         })
-        navigate('/songs'); 
+        navigate(`/songs/${id}`); 
 
-    } catch (e) {
-            setErrores(e.response.data.errors);
-        }
-    };
+        } catch (e) {
+                setErrores(e.response.data.errors);
+            }
+        };
 
     return (
         <div onSubmit={manejarEnvio} className={styles.contenedor}>
-            <h1>New Song</h1>
+            <h1>Edit Song</h1>
             <form className={styles.formSongs}>
                 <div>
                     <label htmlFor="title">Title:</label>
@@ -63,11 +86,11 @@ const AddSongs=()=>{
                     {errores.genre?<p>{errores.genre}</p>:""}
                 </div>
                 <div>
-                    <button className={styles.buttonAdd} type="submit">Add Song</button>
+                    <button className={styles.buttonAdd} type="submit">Save Changes</button>
                 </div>
             </form>
         </div>
     )
 };
 
-export default AddSongs;
+export default UpdateSong;

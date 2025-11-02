@@ -1,10 +1,10 @@
-import {useEffect, useState } from "react";
+import {useState } from "react";
 import axios from "axios"
 import styles from './../css/AddSongs.module.css';
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const UpdateSong=()=>{
-      const [data, setData]=useState({
+const AddSongs=({listaSongs,setListaSongs})=>{
+    const [data, setData]=useState({
         title: "",
         artist: "",
         yearOfRealease: "",
@@ -12,33 +12,21 @@ const UpdateSong=()=>{
     });
     const [errores, setErrores] = useState({});
     const navigate=useNavigate();
-    const {id}=useParams();
-
-    useEffect(()=>{
-        const setInformationSong= async()=>{
-            const API_URL=`http://localhost:8000/api/canciones/${id}`
-            try{
-                await axios.get(API_URL).then((response)=>{
-                    setData(response.data)
-                });
-            }catch(e){
-                console.error("Error al obtener la informacion de la cancion:", e);
-            }
-        };
-        setInformationSong();
-    },[id])
-
-
+    
     const updateState=(e)=>{
         setData({...data, [e.target.name]:e.target.value})
     }
 
     const manejarEnvio= async(e)=>{
         e.preventDefault();
-        setErrores({});
+    
+    setErrores({});
 
         try {
-        await axios.put(`http://localhost:8000/api/canciones/${id}`, data);
+        await axios.post("http://localhost:8000/api/canciones", data)
+            .then(response=>{
+                setListaSongs([...listaSongs,response.data]);
+            });
         //si es exito limpio todos los campos y navego
         setData({
             title: "",
@@ -46,7 +34,7 @@ const UpdateSong=()=>{
             yearOfRealease: "",
             genre: ""
         })
-        navigate(`/songs/${id}`); 
+        navigate('/songs'); 
 
     } catch (e) {
             setErrores(e.response.data.errors);
@@ -55,7 +43,7 @@ const UpdateSong=()=>{
 
     return (
         <div onSubmit={manejarEnvio} className={styles.contenedor}>
-            <h1>Edit Song</h1>
+            <h1>New Song</h1>
             <form className={styles.formSongs}>
                 <div>
                     <label htmlFor="title">Title:</label>
@@ -78,11 +66,11 @@ const UpdateSong=()=>{
                     {errores.genre?<p>{errores.genre}</p>:""}
                 </div>
                 <div>
-                    <button className={styles.buttonAdd} type="submit">Save Changes</button>
+                    <button className={styles.buttonAdd} type="submit">Add Song</button>
                 </div>
             </form>
         </div>
     )
 };
 
-export default UpdateSong;
+export default AddSongs;

@@ -1,29 +1,19 @@
 import {useEffect, useState } from "react";
 import styles from "./../css/AllPlaylistsSongs.module.css";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
-const AllSongs = () => {
-  const [songs, setSongs] = useState([]);
+const AllSongs = ({listaSongs}) => {
+  console.log("Mounting the component");
   const [filtro, setFiltro] = useState("");
   const [songsFiltradas, setSongsFiltradas]=useState([]);
-
-  useEffect(() => {
-    const fetchSongs = async () => {
-      axios.get("http://localhost:8000/api/canciones").then((response) => {
-        setSongs(response.data);
-      });
-    };
-    fetchSongs();
-  }, [songs]);
 
   useEffect(()=>{
     const textoBusqueda=filtro.toLowerCase().trim();
     if(textoBusqueda==""){
-        setSongsFiltradas(songs);
+        setSongsFiltradas(listaSongs);
         return;
     }
-    const newSongs = songs.filter((song) => {
+    const newSongs = listaSongs.filter((song) => {
       const titulo = song.title.toLowerCase();
       const artista = song.artist.toLowerCase();
       const genero = song.genre.toLowerCase();
@@ -35,7 +25,7 @@ const AllSongs = () => {
       );
     });
     setSongsFiltradas(newSongs);
-  },[filtro, songs])
+  },[filtro, listaSongs])
 
   return (
     <div className={styles.contenedor}>
