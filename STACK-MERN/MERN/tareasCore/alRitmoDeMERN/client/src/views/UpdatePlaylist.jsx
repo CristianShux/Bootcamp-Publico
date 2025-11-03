@@ -3,23 +3,14 @@ import styles from "./../css/AddPlaylist.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const UpdatePlaylist = () => {
+const UpdatePlaylist = ({listaSongs,listaPlaylists,setListaPlaylists}) => {
   const [namePlaylist, setNamePlaylist] = useState("");
-  const [songs, setSongs] = useState([]);
   const [selectedSongTitles, setSelectedSongTitles] = useState([]);
   const [errores, setErrores] = useState({});
   const navigate = useNavigate();
   const { name } = useParams();
   const nombreDecodificado = decodeURIComponent(name);
-
-  useEffect(() => {
-    const fetchSongs = async () => {
-      axios.get("http://localhost:8000/api/canciones").then((response) => {
-        setSongs(response.data);
-      });
-    };
-    fetchSongs();
-  }, []);
+  const index=listaPlaylists.findIndex((playlist)=>playlist.name==nombreDecodificado);
 
   useEffect(() => {
     const getSongsOfPlaylist = async () => {
@@ -28,11 +19,12 @@ const UpdatePlaylist = () => {
         .then((response) => {
           setNamePlaylist(response.data.name);
           const songsTitles = response.data.songs.map((song) => song.title);
-          setSelectedSongTitles(songsTitles);
+          const songsTitlesInList=listaSongs.filter((song)=>songsTitles.includes(song.title)).map((song)=>song.title)
+          setSelectedSongTitles(songsTitlesInList);
         });
     };
     getSongsOfPlaylist();
-  }, [nombreDecodificado]);
+  }, []);
 
   const manejarCambioCheckBox = (songTitle) => {
     setSelectedSongTitles((prevTitles) => {
@@ -58,8 +50,12 @@ const UpdatePlaylist = () => {
       await axios.put(
         `http://localhost:8000/api/playlist/${nombreDecodificado}`,
         newPlaylist
-      );
-      navigate(`/playlists/${nombreDecodificado}`);
+      ).then(response=>{
+        const copyListPlaylist=[...listaPlaylists];
+        copyListPlaylist[index]=response.data;
+        setListaPlaylists(copyListPlaylist);
+      })
+      navigate(`/playlists/${namePlaylist}`);
     } catch (e) {
       setErrores(e.response.data.errors);
     }
@@ -84,7 +80,7 @@ const UpdatePlaylist = () => {
         </div>
         <h1>Choose Songs</h1>
         <div>
-          {songs.map((song, index) => {
+          {listaSongs.map((song, index) => {
             return (
               <div className={styles.checks} key={index}>
                 <input
@@ -98,7 +94,8 @@ const UpdatePlaylist = () => {
             );
           })}
         </div>
-        <div>
+        <div className={styles.contenedorBoton}>
+          {errores.songs ? <p>{errores.songs}</p> : ""}
           <button className={styles.buttonCreatePlaylist} type="submit">
             Save Changes
           </button>

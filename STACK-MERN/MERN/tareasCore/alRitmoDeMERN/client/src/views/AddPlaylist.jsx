@@ -1,23 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import styles from "./../css/AddPlaylist.module.css";
 import { useNavigate } from "react-router-dom";
 
-const AddPlaylist = () => {
+const AddPlaylist = ({listaSongs, listaPlaylists, setListaPlaylists}) => {
   const [namePlaylist, setNamePlaylist] = useState("");
-  const [songs, setSongs] = useState([]);
   const [selectedSongTitles, setSelectedSongTitles] = useState([]);
   const [errores, setErrores] = useState({});
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchSongs = async () => {
-      axios.get("http://localhost:8000/api/canciones").then((response) => {
-        setSongs(response.data);
-      });
-    };
-    fetchSongs();
-  }, []);
 
   const manejarCambioCheckBox = (songTitle) => {
     setSelectedSongTitles((prevTitles) => {
@@ -42,7 +32,10 @@ const AddPlaylist = () => {
     };
 
     try {
-      await axios.post("http://localhost:8000/api/playlist", newPlaylist);
+      await axios.post("http://localhost:8000/api/playlist", newPlaylist)
+        .then(response=>{
+          setListaPlaylists([...listaPlaylists,response.data])
+        });
       navigate("/playlists");
     } catch (e) {
         setErrores(e.response.data.errors);
@@ -68,7 +61,7 @@ const AddPlaylist = () => {
         </div>
         <h1>Choose Songs</h1>
         <div>
-          {songs.map((song, index) => {
+          {listaSongs.map((song, index) => {
             return (
               <div className={styles.checks} key={index}>
                 <input
@@ -82,7 +75,8 @@ const AddPlaylist = () => {
             );
           })}
         </div>
-        <div>
+        <div className={styles.contenedorBoton}>
+          {errores.songs ? <p>{errores.songs}</p> : ""}
           <button className={styles.buttonCreatePlaylist} type="submit">
             Create Playlist
           </button>

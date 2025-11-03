@@ -27,6 +27,10 @@ h1{
     justify-content: space-between;
 }
 
+.contenedorBoton p{
+  text-align: center;
+}
+
 .buttonCreatePlaylist{
     color: white;
     background-color: #4bb04f;

@@ -9,7 +9,10 @@ const playlistSchema = mongoose.Schema(
             required : [true, "The name of the playlist is mandatory"],
             unique: true
         },
-        songs : [songsSchema]
+        songs : {
+            type: [songsSchema], 
+            required: [true, "The playlist must contain at least one song"] 
+        }
     }, 
     {timestamps: true}
 )

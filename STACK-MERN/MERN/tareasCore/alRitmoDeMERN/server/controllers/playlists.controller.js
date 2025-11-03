@@ -12,6 +12,13 @@ const playlistController = {
   },
   createOne: async (req, res) => {
     const { name, songs } = req.body;
+    const messages = {};
+    if (!songs || songs.length == 0) {
+      messages.songs = "The playlist must contain at least one song";
+    }
+    if (Object.keys(messages).length > 0) {
+      return res.status(400).json({ errors: messages });
+    }
     try {
       const foundSongs = await Songs.find({ title: { $in: songs } });
       if (foundSongs.length !== songs.length) {
@@ -27,7 +34,6 @@ const playlistController = {
       const savedPlaylist = await Playlist.create(newArray);
       res.status(201).json(savedPlaylist);
     } catch (e) {
-      const messages = {};
       if (e.name === "ValidationError") {
         Object.keys(e.errors).forEach((key) => {
           messages[key] = e.errors[key].message;
@@ -65,6 +71,13 @@ const playlistController = {
   updateOne: async (req, res) => {
     const nameToUpdate = req.params.name;
     const { name, songs } = req.body;
+    const messages = {};
+    if (!songs || songs.length == 0) {
+      messages.songs = "The playlist must contain at least one song";
+    }
+    if (Object.keys(messages).length > 0) {
+      return res.status(400).json({ errors: messages });
+    }
     try {
       const foundSongs = await Songs.find({ title: { $in: songs } });
       if (foundSongs.length !== songs.length) {
@@ -89,7 +102,6 @@ const playlistController = {
       }
       return res.status(201).json(oneUpdated);
     } catch (e) {
-      const messages = {};
       if (e.name === "ValidationError") {
         Object.keys(e.errors).forEach((key) => {
           messages[key] = e.errors[key].message;

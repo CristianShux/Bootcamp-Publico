@@ -4,7 +4,7 @@ import styles from './../css/SongsPlaylist.module.css';
 import styles2 from './../css/BotonesEditores.module.css'
 import axios from "axios";
 
-const SongsPlaylists=()=>{
+const SongsPlaylists=({listaPlaylists, setListaPlaylists})=>{
     const[songsList,setSongsList]=useState([""]);
     const {name} = useParams(); 
     const navigate=useNavigate();
@@ -31,6 +31,7 @@ const SongsPlaylists=()=>{
     const handleDeleteClick= async()=>{
         try{
             axios.delete(`http://localhost:8000/api/playlist/${nombreDecodificado}`);
+            setListaPlaylists(listaPlaylists.filter((playlist)=>playlist.name!=nombreDecodificado));
             navigate('/playlists');
         }catch(e){
              console.error("Error al eliminar la cancion:", e)
