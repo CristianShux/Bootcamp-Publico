@@ -1,0 +1,18 @@
+.contenedorBotones > button{
+    margin: 1rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.2rem;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.colorRojo{
+    background-color: #f0807f;
+}
+
+.colorAzul{
+    background-color: #a9dbe6;
+}

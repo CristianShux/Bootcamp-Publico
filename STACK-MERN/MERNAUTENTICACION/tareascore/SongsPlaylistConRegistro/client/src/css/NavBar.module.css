@@ -1,0 +1,23 @@
+
+nav{
+    background-color: black;
+    flex: 1;
+}
+
+.lista{
+    display: flex;
+    justify-content: space-around;
+}
+
+.lista a{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+.lista li{
+    list-style: none;
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+}
