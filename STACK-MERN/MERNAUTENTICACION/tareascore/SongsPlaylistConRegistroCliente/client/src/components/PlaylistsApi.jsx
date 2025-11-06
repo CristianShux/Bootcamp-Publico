@@ -12,7 +12,7 @@ const PlaylistsApi=({setListaPlaylists, login, setLogin})=>{
                 .then((response)=>{
                     setListaPlaylists(response.data);
                 }).catch(()=>{
-                    navigate("/login");
+                    navigate("/home");
                     setLogin(false);
                 })
         };

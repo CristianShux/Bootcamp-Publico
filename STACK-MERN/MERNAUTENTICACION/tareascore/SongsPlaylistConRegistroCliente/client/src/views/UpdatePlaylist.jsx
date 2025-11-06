@@ -15,7 +15,9 @@ const UpdatePlaylist = ({listaSongs,listaPlaylists,setListaPlaylists}) => {
   useEffect(() => {
     const getSongsOfPlaylist = async () => {
       axios
-        .get(`http://localhost:8000/api/playlist/${nombreDecodificado}`)
+        .get(`http://localhost:8000/api/playlist/${nombreDecodificado}`,
+          {headers:{token_user:localStorage.getItem("token")}}
+        )
         .then((response) => {
           setNamePlaylist(response.data.name);
           const songsTitles = response.data.songs.map((song) => song.title);

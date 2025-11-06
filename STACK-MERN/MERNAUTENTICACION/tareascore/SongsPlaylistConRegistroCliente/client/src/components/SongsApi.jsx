@@ -14,7 +14,7 @@ const SongsApi = ({ setListaSongs, login, setLogin }) => {
           setListaSongs(response.data);
         })
         .catch(() => {
-          navigate("/login");
+          navigate("/home");
           setLogin(false);
         });
     };

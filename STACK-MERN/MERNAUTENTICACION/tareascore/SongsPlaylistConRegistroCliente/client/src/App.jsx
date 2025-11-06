@@ -14,6 +14,8 @@ import PlaylistsApi from "./components/PlaylistsApi";
 import NotFound from "./components/NotFound";
 import Login from "./views/Login";
 import { useState } from "react";
+import Home from "./views/Home";
+import Registro from "./views/Registro";
 
 
 
@@ -34,14 +36,16 @@ function App() {
       {(login)? <>
         <NavBar logOut={logOut}/>
       </> : <>
-        <Link to={'/login'}></Link>
       </>}
+
 
       <SongsApi setListaSongs={setListaSongs} login={login} setLogin={setLogin}/>
       <PlaylistsApi setListaPlaylists={setListaPlaylists} login={login} setLogin={setLogin}/>
       <main>
         <Routes>
-          <Route path="/" element={<Navigate to="login"/>}/>
+          <Route path="/" element={<Navigate to="home"/>}></Route>
+          <Route path='/home' element={<Home/>}/>
+          <Route path="/registro" element={<Registro setLogin={setLogin}/>}/>
           <Route path="/login" element={<Login setLogin={setLogin}/>}/>
           <Route path="/songs" element={<AllSongs listaSongs={listaSongs}/>}/>
           <Route path="/songs/:id" element={<SongInformation listaSongs={listaSongs} setListaSongs={setListaSongs} />}/>

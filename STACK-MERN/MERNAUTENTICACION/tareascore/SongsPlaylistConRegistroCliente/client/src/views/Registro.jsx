@@ -2,11 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import styles from './../css/Login.module.css'
 import { useNavigate, Link } from "react-router-dom";
-
-const Login=({setLogin})=>{
-    const[state,setState]=useState({
+const Registro=({setLogin})=>{
+     const[state,setState]=useState({
+        firstName:"",
+        lastName:"",
         email:"",
-        password:""
+        password:"",
+        passwordConfirmation:""
     });
     const[errors,setErrors]=useState({});
     const navigate=useNavigate();
@@ -14,9 +16,9 @@ const Login=({setLogin})=>{
     const updateState= async(e)=>{
         setState({...state,[e.target.name]: e.target.value});
     }
-    const loginProcess=(e)=>{
+    const registerProcess=(e)=>{
         e.preventDefault();
-        axios.post("http://localhost:8000/api/users/login",state)
+        axios.post("http://localhost:8000/api/users/registro",state)
             .then((response=>{
                 localStorage.setItem("token",response.data.token);
                 setLogin(true);
@@ -27,8 +29,18 @@ const Login=({setLogin})=>{
 
     return (
         <div className={styles.contenedor}> 
-            <h1>LOGIN</h1>
-            <form className={styles.formulario} onSubmit={loginProcess}>
+            <h1>REGISTRO</h1>
+            <form className={styles.formulario} onSubmit={registerProcess}>
+                <div>
+                    <label htmlFor="firstName">First Name:</label>
+                    <input type="firstName" name="firstName" id="firstName" value={state.firstName} onChange={(e)=>updateState(e)} />
+                    {errors.firstName?<p style={{color:"red"}}>{errors.firstName}</p>:""}
+                </div>
+                <div>
+                    <label htmlFor="lastName">Last Name:</label>
+                    <input type="lastName" name="lastName" id="lastName" value={state.lastName} onChange={(e)=>updateState(e)} />
+                    {errors.lastName?<p style={{color:"red"}}>{errors.lastName}</p>:""}
+                </div>
                 <div>
                     <label htmlFor="email">Email:</label>
                     <input type="email" name="email" id="email" value={state.email} onChange={(e)=>updateState(e)} />
@@ -40,7 +52,13 @@ const Login=({setLogin})=>{
                     {errors.password?<p style={{color:"red"}}>{errors.password}</p>:""}
                 </div>
                 <div>
-                    <button type="submit">Log in</button>
+                    <label htmlFor="passwordConfirmation">Password Confirmation:</label>
+                    <input type="password" name="passwordConfirmation" id="passwordConfirmation" value={state.passwordConfirmation} 
+                    onChange={(e)=>updateState(e)} />
+                    {errors.passwordConfirmation?<p style={{color:"red"}}>{errors.passwordConfirmation}</p>:""}
+                </div>
+                <div>
+                    <button type="submit">Register</button>
                 </div>
                 <div>
                     <Link to={"/home"}><button>Volver</button></Link>
@@ -50,4 +68,4 @@ const Login=({setLogin})=>{
     )
 };
 
-export default Login;
+export default Registro;

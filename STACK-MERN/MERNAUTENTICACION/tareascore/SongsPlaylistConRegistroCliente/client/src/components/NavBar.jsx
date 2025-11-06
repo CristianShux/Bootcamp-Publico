@@ -8,7 +8,7 @@ const NavBar = ({logOut}) => {
           <li><Link to={"/playlists"}>Playlists</Link></li>
           <li><Link to={"/addSongs"}>Add Song</Link></li>
           <li><Link to={"/addPlaylist"}>Add Playlist</Link></li>
-          <li><button onClick={logOut}>Log Out</button></li>
+          <li><button className={styles.botonLogOut} onClick={logOut}>Log Out</button></li>
         </ul>
       </nav>
   );

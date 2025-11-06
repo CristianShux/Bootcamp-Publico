@@ -1,0 +1,29 @@
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    border: solid 0.2rem black;
+    margin: 1rem;
+    padding: 3rem;
+    background-color: beige;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario >div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario button{
+    margin-top: 1rem;
+    border: black solid 0.2rem;
+    border-radius: 0.5rem;
+    width: 10rem;
+    padding: 0.2rem;
+    font-size: 1rem;
+}
