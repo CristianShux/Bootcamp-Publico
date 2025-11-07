@@ -17,7 +17,7 @@ const UpdateSong=({listaSongs,setListaSongs, logOut})=>{
 
     useEffect(()=>{
         const setInformationSong= async()=>{
-            const API_URL=`http://localhost:8000/api/canciones/${id}`
+            const API_URL=`https://songsplaylistconregistroservidor.onrender.com/api/canciones/${id}`
             try{
                 await axios.get(API_URL,
                     {headers:{token_user:localStorage.getItem("token")}}
@@ -44,7 +44,7 @@ const UpdateSong=({listaSongs,setListaSongs, logOut})=>{
         setErrores({});
 
         try {
-        await axios.put(`http://localhost:8000/api/canciones/${id}`, 
+        await axios.put(`https://songsplaylistconregistroservidor.onrender.com/api/canciones/${id}`, 
             data, {headers:{token_user:localStorage.getItem("token")}})
             .then(
                 response=>{

@@ -13,7 +13,7 @@ const SongInformation = ({ listaSongs, setListaSongs,logOut }) => {
 
   useEffect(() => {
     const getInformationSong = async () => {
-      const API_URL = `http://localhost:8000/api/canciones/${id}`;
+      const API_URL = `https://songsplaylistconregistroservidor.onrender.com/api/canciones/${id}`;
       try {
         await axios
           .get(API_URL, {
@@ -42,7 +42,7 @@ const SongInformation = ({ listaSongs, setListaSongs,logOut }) => {
 
   const handleDeleteClick = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/canciones/${id}`, {
+      await axios.delete(`https://songsplaylistconregistroservidor.onrender.com/api/canciones/${id}`, {
         headers: { token_user: localStorage.getItem("token") },
       });
       setListaSongs(listaSongs.filter((song) => song._id != id));

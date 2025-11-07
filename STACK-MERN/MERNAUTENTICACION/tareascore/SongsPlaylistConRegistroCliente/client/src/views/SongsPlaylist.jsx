@@ -14,7 +14,7 @@ const SongsPlaylists=({listaPlaylists, setListaPlaylists, logOut})=>{
 
     useEffect(() => {
         const getSongs = async () => {
-            const API_URL = `http://localhost:8000/api/playlist/${nombreDecodificado}`;
+            const API_URL = `https://songsplaylistconregistroservidor.onrender.com/api/playlist/${nombreDecodificado}`;
             
             try {
                 const response = await axios.get(API_URL,
@@ -37,7 +37,7 @@ const SongsPlaylists=({listaPlaylists, setListaPlaylists, logOut})=>{
     }
     const handleDeleteClick= async()=>{
         try{
-            await axios.delete(`http://localhost:8000/api/playlist/${nombreDecodificado}`,
+            await axios.delete(`https://songsplaylistconregistroservidor.onrender.com/api/playlist/${nombreDecodificado}`,
                 {headers:{token_user:localStorage.getItem("token")}}
             );
             setListaPlaylists(listaPlaylists.filter((playlist)=>playlist.name!=nombreDecodificado));

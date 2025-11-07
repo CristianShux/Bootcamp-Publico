@@ -15,7 +15,7 @@ const UpdatePlaylist = ({listaSongs,listaPlaylists,setListaPlaylists, logOut}) =
   useEffect(() => {
     const getSongsOfPlaylist = async () => {
       await axios
-        .get(`http://localhost:8000/api/playlist/${nombreDecodificado}`,
+        .get(`https://songsplaylistconregistroservidor.onrender.com/api/playlist/${nombreDecodificado}`,
           {headers:{token_user:localStorage.getItem("token")}}
         )
         .then((response) => {
@@ -55,7 +55,7 @@ const UpdatePlaylist = ({listaSongs,listaPlaylists,setListaPlaylists, logOut}) =
 
     try {
       await axios.put(
-        `http://localhost:8000/api/playlist/${nombreDecodificado}`,
+        `https://songsplaylistconregistroservidor.onrender.com/api/playlist/${nombreDecodificado}`,
         newPlaylist, {headers:{token_user:localStorage.getItem("token")}}
       ).then(response=>{
         const copyListPlaylist=[...listaPlaylists];

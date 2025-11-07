@@ -18,7 +18,7 @@ const Registro=({setLogin})=>{
     }
     const registerProcess=(e)=>{
         e.preventDefault();
-        axios.post("http://localhost:8000/api/users/registro",state)
+        axios.post("https://songsplaylistconregistroservidor.onrender.com/api/users/registro",state)
             .then((response=>{
                 localStorage.setItem("token",response.data.token);
                 setLogin(true);

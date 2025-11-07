@@ -7,7 +7,7 @@ const SongsApi = ({ setListaSongs, login, setLogin }) => {
   useEffect(() => {
     const fetchSongs = async () => {
       axios
-        .get("http://localhost:8000/api/canciones",
+        .get("https://songsplaylistconregistroservidor.onrender.com/api/canciones",
           {headers:{token_user:localStorage.getItem("token")}}
         )
         .then((response) => {

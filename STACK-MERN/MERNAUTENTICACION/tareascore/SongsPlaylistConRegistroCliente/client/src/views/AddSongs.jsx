@@ -23,7 +23,7 @@ const AddSongs=({listaSongs,setListaSongs, logOut})=>{
     setErrores({});
 
         try {
-        await axios.post("http://localhost:8000/api/canciones", data,
+        await axios.post("https://songsplaylistconregistroservidor.onrender.com/api/canciones", data,
             {headers:{token_user:localStorage.getItem("token")}}
         )
             .then(response=>{

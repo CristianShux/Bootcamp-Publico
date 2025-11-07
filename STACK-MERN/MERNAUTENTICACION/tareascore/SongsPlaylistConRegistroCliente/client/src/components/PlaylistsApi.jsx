@@ -6,7 +6,7 @@ const PlaylistsApi=({setListaPlaylists, login, setLogin})=>{
     const navigate=useNavigate();
     useEffect(()=>{
         const fetchPlaylists= async()=>{
-            await axios.get("http://localhost:8000/api/playlist",
+            await axios.get("https://songsplaylistconregistroservidor.onrender.com/api/playlist",
                 {headers:{token_user:localStorage.getItem("token")}}
             )
                 .then((response)=>{

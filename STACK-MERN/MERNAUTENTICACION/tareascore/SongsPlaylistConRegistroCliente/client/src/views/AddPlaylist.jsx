@@ -32,7 +32,7 @@ const AddPlaylist = ({listaSongs, listaPlaylists, setListaPlaylists, logOut}) =>
     };
 
     try {
-      await axios.post("http://localhost:8000/api/playlist", newPlaylist,
+      await axios.post("https://songsplaylistconregistroservidor.onrender.com/api/playlist", newPlaylist,
         {headers:{token_user:localStorage.getItem("token")}}
       )
         .then(response=>{
