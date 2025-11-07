@@ -5,7 +5,7 @@ import styles2 from './../css/BotonesEditores.module.css'
 import axios from "axios";
 import NotFound from "../components/NotFound";
 
-const SongsPlaylists=({listaPlaylists, setListaPlaylists})=>{
+const SongsPlaylists=({listaPlaylists, setListaPlaylists, logOut})=>{
     const[songsList,setSongsList]=useState([""]);
     const[error,setError]=useState("");
     const {name} = useParams(); 
@@ -22,6 +22,9 @@ const SongsPlaylists=({listaPlaylists, setListaPlaylists})=>{
                 );
                 setSongsList(response.data.songs); 
             } catch (error) {
+                if(error.status==406){
+                    logOut();
+                }
                 setError(error);
                 setSongsList([]); 
             }
@@ -29,24 +32,28 @@ const SongsPlaylists=({listaPlaylists, setListaPlaylists})=>{
         getSongs();
     }, [nombreDecodificado]); 
 
-    if(error){
-        return <NotFound/>
-    }
-
     const handleEditClick=()=>{
         navigate(`/editPlaylists/${nombreDecodificado}`)
     }
     const handleDeleteClick= async()=>{
         try{
-            axios.delete(`http://localhost:8000/api/playlist/${nombreDecodificado}`,
+            await axios.delete(`http://localhost:8000/api/playlist/${nombreDecodificado}`,
                 {headers:{token_user:localStorage.getItem("token")}}
             );
             setListaPlaylists(listaPlaylists.filter((playlist)=>playlist.name!=nombreDecodificado));
             navigate('/playlists');
         }catch(e){
-             console.error("Error al eliminar la cancion:", e)
+            if(e.status==406){
+                logOut();
+            }
+            console.error("Error al eliminar la cancion:", e);
         }
     }
+
+    if(error){
+        return <NotFound/>
+    }
+
     return (
         <div className={styles.contenedor}>
             <h1>{name}</h1>

@@ -3,7 +3,7 @@ import axios from "axios"
 import styles from './../css/AddSongs.module.css';
 import { useNavigate, useParams } from "react-router-dom";
 
-const UpdateSong=({listaSongs,setListaSongs})=>{
+const UpdateSong=({listaSongs,setListaSongs, logOut})=>{
     const [data, setData]=useState({
         title: "",
         artist: "",
@@ -25,7 +25,10 @@ const UpdateSong=({listaSongs,setListaSongs})=>{
                     setData(response.data)
                 });
             }catch(e){
-                console.error("Error al obtener la informacion de la cancion:", e);
+                if (e.status == 406) {
+                    logOut();
+                }
+                setErrores(e.response.data.errors);
             }
         };
         setInformationSong();
@@ -60,6 +63,9 @@ const UpdateSong=({listaSongs,setListaSongs})=>{
         navigate(`/songs/${id}`); 
 
         } catch (e) {
+                if (e.status == 406) {
+                    logOut();
+                }
                 setErrores(e.response.data.errors);
             }
         };

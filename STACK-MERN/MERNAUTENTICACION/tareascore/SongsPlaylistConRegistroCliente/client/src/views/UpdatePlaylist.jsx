@@ -3,7 +3,7 @@ import styles from "./../css/AddPlaylist.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const UpdatePlaylist = ({listaSongs,listaPlaylists,setListaPlaylists}) => {
+const UpdatePlaylist = ({listaSongs,listaPlaylists,setListaPlaylists, logOut}) => {
   const [namePlaylist, setNamePlaylist] = useState("");
   const [selectedSongTitles, setSelectedSongTitles] = useState([]);
   const [errores, setErrores] = useState({});
@@ -14,7 +14,7 @@ const UpdatePlaylist = ({listaSongs,listaPlaylists,setListaPlaylists}) => {
 
   useEffect(() => {
     const getSongsOfPlaylist = async () => {
-      axios
+      await axios
         .get(`http://localhost:8000/api/playlist/${nombreDecodificado}`,
           {headers:{token_user:localStorage.getItem("token")}}
         )
@@ -23,6 +23,11 @@ const UpdatePlaylist = ({listaSongs,listaPlaylists,setListaPlaylists}) => {
           const songsTitles = response.data.songs.map((song) => song.title);
           const songsTitlesInList=listaSongs.filter((song)=>songsTitles.includes(song.title)).map((song)=>song.title)
           setSelectedSongTitles(songsTitlesInList);
+        }).catch((e)=>{
+          if(e.status==406){
+            logOut();
+          }
+          setErrores(e.response.data.errors);   
         });
     };
     getSongsOfPlaylist();
@@ -59,6 +64,9 @@ const UpdatePlaylist = ({listaSongs,listaPlaylists,setListaPlaylists}) => {
       })
       navigate(`/playlists/${namePlaylist}`);
     } catch (e) {
+       if(e.status==406){
+          logOut();
+       }
       setErrores(e.response.data.errors);
     }
   };

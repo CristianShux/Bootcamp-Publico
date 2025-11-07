@@ -3,7 +3,7 @@ import axios from "axios"
 import styles from './../css/AddSongs.module.css';
 import { useNavigate } from "react-router-dom";
 
-const AddSongs=({listaSongs,setListaSongs})=>{
+const AddSongs=({listaSongs,setListaSongs, logOut})=>{
     const [data, setData]=useState({
         title: "",
         artist: "",
@@ -39,6 +39,9 @@ const AddSongs=({listaSongs,setListaSongs})=>{
         navigate('/songs'); 
 
     } catch (e) {
+            if(e.status==406){
+                logOut();
+            }
             setErrores(e.response.data.errors);
         }
     };

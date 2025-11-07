@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "./../css/AddPlaylist.module.css";
 import { useNavigate } from "react-router-dom";
 
-const AddPlaylist = ({listaSongs, listaPlaylists, setListaPlaylists}) => {
+const AddPlaylist = ({listaSongs, listaPlaylists, setListaPlaylists, logOut}) => {
   const [namePlaylist, setNamePlaylist] = useState("");
   const [selectedSongTitles, setSelectedSongTitles] = useState([]);
   const [errores, setErrores] = useState({});
@@ -40,6 +40,10 @@ const AddPlaylist = ({listaSongs, listaPlaylists, setListaPlaylists}) => {
         });
       navigate("/playlists");
     } catch (e) {
+        if(e.status==406){
+          logOut();
+        }
+        
         setErrores(e.response.data.errors);
     }
   };

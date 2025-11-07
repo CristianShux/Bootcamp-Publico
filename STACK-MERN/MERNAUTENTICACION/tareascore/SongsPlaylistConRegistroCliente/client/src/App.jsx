@@ -48,13 +48,13 @@ function App() {
           <Route path="/registro" element={<Registro setLogin={setLogin}/>}/>
           <Route path="/login" element={<Login setLogin={setLogin}/>}/>
           <Route path="/songs" element={<AllSongs listaSongs={listaSongs}/>}/>
-          <Route path="/songs/:id" element={<SongInformation listaSongs={listaSongs} setListaSongs={setListaSongs} />}/>
-          <Route path="/editSongs/:id" element={<UpdateSong listaSongs={listaSongs} setListaSongs={setListaSongs}/>}/>
-          <Route path="/addSongs" element={<AddSongs listaSongs={listaSongs} setListaSongs={setListaSongs}/>}/>
+          <Route path="/songs/:id" element={<SongInformation listaSongs={listaSongs} setListaSongs={setListaSongs} logOut={logOut}/>}/>
+          <Route path="/editSongs/:id" element={<UpdateSong listaSongs={listaSongs} setListaSongs={setListaSongs} logOut={logOut}/>}/>
+          <Route path="/addSongs" element={<AddSongs listaSongs={listaSongs} setListaSongs={setListaSongs} logOut={logOut}/>}/>
           <Route path="/playlists" element={<Playlists listaPlaylists={listaPlaylists}/>}/>
-          <Route path="/playlists/:name" element={<SongsPlaylists listaPlaylists={listaPlaylists} setListaPlaylists={setListaPlaylists}/>}/>
-          <Route path="/editPlaylists/:name" element={<UpdatePlaylist listaSongs={listaSongs} listaPlaylists={listaPlaylists} setListaPlaylists={setListaPlaylists}/>}/>
-          <Route path="/addPlaylist" element={<AddPlaylist listaSongs={listaSongs} listaPlaylists={listaPlaylists} setListaPlaylists={setListaPlaylists}/>}/>
+          <Route path="/playlists/:name" element={<SongsPlaylists listaPlaylists={listaPlaylists} setListaPlaylists={setListaPlaylists} logOut={logOut}/>}/>
+          <Route path="/editPlaylists/:name" element={<UpdatePlaylist listaSongs={listaSongs} listaPlaylists={listaPlaylists} setListaPlaylists={setListaPlaylists} logOut={logOut}/>}/>
+          <Route path="/addPlaylist" element={<AddPlaylist listaSongs={listaSongs} listaPlaylists={listaPlaylists} setListaPlaylists={setListaPlaylists} logOut={logOut}/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       </main>

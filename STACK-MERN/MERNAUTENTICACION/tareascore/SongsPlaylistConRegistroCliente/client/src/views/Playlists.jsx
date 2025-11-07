@@ -17,6 +17,8 @@ const Playlists=({listaPlaylists})=>{
         const newPlaylists=listaPlaylists.filter((playlist)=>playlist.name.toLowerCase().includes(textoBusqueda));
         setPlaylistsFiltradas(newPlaylists);
     },[filtro,listaPlaylists]);
+
+    
     return (
          <div className={styles.contenedor}>
               <h1>All Playlists</h1>
