@@ -2,7 +2,7 @@ import {useEffect, useState } from "react";
 import styles from "./../css/AllPlaylistsSongs.module.css";
 import { Link } from "react-router-dom";
 
-const AllSongs = ({listaSongs}) => {
+const AllSongs = ({listaSongs, me}) => {
   console.log("Mounting the component");
   const [filtro, setFiltro] = useState("");
   const [songsFiltradas, setSongsFiltradas]=useState([]);
@@ -29,6 +29,7 @@ const AllSongs = ({listaSongs}) => {
 
   return (
     <div className={styles.contenedor}>
+      <h1> Bievenido {me.email}</h1>
       <h1>All Songs</h1>
       <input
         htmlFor="busqueda"

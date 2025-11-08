@@ -22,6 +22,7 @@ import Registro from "./views/Registro";
 function App() {
   const [listaSongs,setListaSongs]=useState([]);
   const [listaPlaylists, setListaPlaylists]=useState([]);
+  const [me,setMe]=useState({});
   const [login, setLogin]=useState(false);
   const navigate=useNavigate();
 
@@ -39,7 +40,7 @@ function App() {
       </>}
 
 
-      <SongsApi setListaSongs={setListaSongs} login={login} setLogin={setLogin}/>
+      <SongsApi setListaSongs={setListaSongs} login={login} setLogin={setLogin} setMe={setMe}/>
       <PlaylistsApi setListaPlaylists={setListaPlaylists} login={login} setLogin={setLogin}/>
       <main>
         <Routes>
@@ -47,7 +48,7 @@ function App() {
           <Route path='/home' element={<Home/>}/>
           <Route path="/registro" element={<Registro setLogin={setLogin}/>}/>
           <Route path="/login" element={<Login setLogin={setLogin}/>}/>
-          <Route path="/songs" element={<AllSongs listaSongs={listaSongs}/>}/>
+          <Route path="/songs" element={<AllSongs listaSongs={listaSongs} me={me}/>}/>
           <Route path="/songs/:id" element={<SongInformation listaSongs={listaSongs} setListaSongs={setListaSongs} logOut={logOut}/>}/>
           <Route path="/editSongs/:id" element={<UpdateSong listaSongs={listaSongs} setListaSongs={setListaSongs} logOut={logOut}/>}/>
           <Route path="/addSongs" element={<AddSongs listaSongs={listaSongs} setListaSongs={setListaSongs} logOut={logOut}/>}/>
