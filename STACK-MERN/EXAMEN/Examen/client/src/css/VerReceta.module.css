@@ -1,0 +1,64 @@
+.contenedor {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.titulo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 1rem;
+}
+
+.cajaDetalles {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.cajaDetalles p {
+    font-size: 0.8rem;
+    color: #333;
+    margin: 0;
+}
+
+.list {
+    font-size: 0.8rem;
+    color: #333;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.list li {
+    margin-bottom: 0.1rem;
+}
+
+.botonBorrar {
+    padding: 1rem;
+    background-color: #e53e3e; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 2rem;
+    margin-left: 14rem;
+    text-align: center;
+}

@@ -1,0 +1,68 @@
+import { useState } from "react";
+import axios from "axios";
+import styles from './../css/Login-register.module.css'
+import { useNavigate, Link } from "react-router-dom";
+const Registro=({setLogin})=>{
+     const[state,setState]=useState({
+        firstName:"",
+        lastName:"",
+        email:"",
+        password:"",
+        passwordConfirmation:""
+    });
+    const[errors,setErrors]=useState({});
+    const navigate=useNavigate();
+
+    const updateState= async(e)=>{
+        setState({...state,[e.target.name]: e.target.value});
+    }
+    const registerProcess=(e)=>{
+        e.preventDefault();
+        axios.post("http://localhost:8000/api/users/registro",state)
+            .then((response=>{
+                localStorage.setItem("token",response.data.token);
+                setLogin(true);
+                setErrors({});
+                navigate("/recetas");
+            })).catch(e=>setErrors(e.response.data.errors));
+    } 
+
+    return (
+        <div className={styles.contenedor}> 
+            <h1>Registro</h1>
+            <form className={styles.formulario} onSubmit={registerProcess}>
+                <div>
+                    <label htmlFor="firstName">Nombre:</label>
+                    <input type="firstName" name="firstName" id="firstName" value={state.firstName} onChange={(e)=>updateState(e)} />
+                    {errors.firstName?<p style={{color:"red"}}>{errors.firstName}</p>:""}
+                </div>
+                <div>
+                    <label htmlFor="lastName">Apellido</label>
+                    <input type="lastName" name="lastName" id="lastName" value={state.lastName} onChange={(e)=>updateState(e)} />
+                    {errors.lastName?<p style={{color:"red"}}>{errors.lastName}</p>:""}
+                </div>
+                <div>
+                    <label htmlFor="email">Correo</label>
+                    <input type="email" name="email" id="email" value={state.email} onChange={(e)=>updateState(e)} />
+                    {errors.email?<p style={{color:"red"}}>{errors.email}</p>:""}
+                </div>
+                <div>
+                    <label htmlFor="password">Contraseña</label>
+                    <input type="password" name="password" id="password" value={state.password} onChange={(e)=>updateState(e)} />
+                    {errors.password?<p style={{color:"red"}}>{errors.password}</p>:""}
+                </div>
+                <div>
+                    <label htmlFor="passwordConfirmation">Confirmar contraseña</label>
+                    <input type="password" name="passwordConfirmation" id="passwordConfirmation" value={state.passwordConfirmation} 
+                    onChange={(e)=>updateState(e)} />
+                    {errors.passwordConfirmation?<p style={{color:"red"}}>{errors.passwordConfirmation}</p>:""}
+                </div>
+                <div>
+                    <button type="submit">Registrarse</button>
+                </div>
+            </form>
+        </div>
+    )
+};
+
+export default Registro;

@@ -1,0 +1,44 @@
+
+.contenedorPrincipal {
+    width: 100%;
+    max-width: 960px; 
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.table_main {
+    width: 100%;
+    margin-bottom: 2rem; 
+    border: 1px solid #e2e8f0;
+    overflow: hidden; 
+}
+
+table {
+    width: 100%;
+}
+
+
+th {
+    background-color: #f8f9fa; 
+    padding: 0.75rem 1rem;
+    text-align: left; 
+    font-weight: 600;
+    color: #4a5568;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+
+td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle; 
+}
+
+.title {
+    width: 40%;
+    font-weight: 500;
+}
+
+.extra {
+    width: 20%;
+    text-align: left;
+}
